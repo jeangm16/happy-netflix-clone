@@ -1,0 +1,38 @@
+.row {
+  color: white;
+  margin-left: 20px;
+}
+
+.row__posters {
+  /* makes the colem from top down to left right */
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+/* makes the scrollbar disaper */
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row__posters {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 450ms;
+}
+
+/* when ever the user hover over any movie it becomes bigger */
+.row__posters:hover {
+  transform: scale(1.08);
+}
+
+.row__posterLarge {
+  max-height: 250px;
+}
+
+.row__posterLarge:hover {
+  transform: scale(1.09);
+}
