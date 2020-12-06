@@ -1,8 +1,9 @@
 import React from "react";
+import "./Nav.css";
 
 function Nav() {
   return (
-  <div className="nav">
+    <div className="nav">
       <img
         className="nav__logo"
         scr="https://upload.wikimedia.org/wikipedia/commons/0/0f/"
@@ -14,9 +15,8 @@ function Nav() {
         scr="https://pbs.twimg.com/profile_images/124011999041155"
         alt="Netflix Logo"
       />
-
-  </div>;
-  )
+    </div>
+  );
 }
 
 export default Nav;
