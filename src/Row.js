@@ -1,5 +1,6 @@
 import React, { userState, useEffect } from "react";
 import axios from "./axios";
+import requests from "./requests";
 import "./Row.css";
 
 // need this base url for the images because they come back as jpg insted of a url
