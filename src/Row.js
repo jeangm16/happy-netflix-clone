@@ -1,13 +1,14 @@
-import React, { userState, useEffect } from "react";
+import React, { userState, useEffect, useState } from "react";
 import axios from "./axios";
-import requests from "./requests";
 import "./Row.css";
+import YouTube from "react-youtube";
 
 // need this base url for the images because they come back as jpg insted of a url
 const base_url = "https://image.tmdb.org/t/p/original/";
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = userState([]);
+  const [trailerUrl, setTrailerUrl] = useState("");
 
   // i need a snippet of code which runs based on a specific condition/varaible
   useEffect(() => {
@@ -19,6 +20,16 @@ function Row({ title, fetchUrl, isLargeRow }) {
     }
     fetchData();
   }, [fetchUrl]);
+
+  //this was taken from the react youtube website
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
 
   console.log(movies);
 
@@ -40,6 +51,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           />
         ))}
       </div>
+      <YouTube videoId={trailerUrl} opts={opts} />
     </div>
   );
 }

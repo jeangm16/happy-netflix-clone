@@ -6,8 +6,8 @@
   height: 30px;
   z-index: 1;
 
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 
   /* Animation code */
   transition-timing-function: ease-in;
