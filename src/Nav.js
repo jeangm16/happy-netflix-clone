@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Nav.css";
 
 function Nav() {
-    const [show, handleShow] = useState{false};
+  const [show, handleShow] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -16,7 +16,7 @@ function Nav() {
   }, []);
 
   return (
-    <div className="nav">
+    <div className={`nav ${show && "nav__black"}`}>
       <img
         className="nav__logo"
         scr="https://upload.wikimedia.org/wikipedia/commons/0/0f/"
