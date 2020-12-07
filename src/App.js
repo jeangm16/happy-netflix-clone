@@ -8,7 +8,7 @@ import Nav from "./Nav";
 function App() {
   return (
     <div className="app">
-      {/* nav bar */}
+      <Nav />
 
       <Banner />
 

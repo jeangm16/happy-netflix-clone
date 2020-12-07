@@ -1,15 +1,14 @@
-import React, { userState, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import "./Row.css";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
 
-
 // need this base url for the images because they come back as jpg insted of a url
 const base_url = "https://image.tmdb.org/t/p/original/";
 
 function Row({ title, fetchUrl, isLargeRow }) {
-  const [movies, setMovies] = userState([]);
+  const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
 
   // i need a snippet of code which runs based on a specific condition/varaible
@@ -34,15 +33,15 @@ function Row({ title, fetchUrl, isLargeRow }) {
   };
 
   const handleClick = (movie) => {
-    if (trailerUrl){
+    if (trailerUrl) {
       setTrailerUrl("");
-    } else{
+    } else {
       movieTrailer(movie?.name || "")
-      .then(url => {
-        const urlParams = new URLSearchParams(new URL(url).search);
-        setTrailerUrl(urlParams.get("v"));
-      })
-      .catch(error => console.log(error));
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get("v"));
+        })
+        .catch((error) => console.log(error));
     }
   };
 
@@ -57,7 +56,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           <img
             key={movie.id}
             onClick={() => handleClick(movie)}
-            className={`row__poster ${isLargeRow && "row__posterLarge" }`}
+            className={`row__poster ${isLargeRow && "row__posterLarge"}`}
             scr={`${base_url}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}
@@ -65,7 +64,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           />
         ))}
       </div>
-      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />
+      <YouTube videoId={trailerUrl} opts={opts} />
     </div>
   );
 }
